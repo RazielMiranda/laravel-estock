@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'login');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products', 'ProdutoController@list')->name('home');
+Route::get('/categories', 'CategoriaController@list')->name('home');
